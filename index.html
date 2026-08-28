@@ -1,75 +1,324 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>PixelU</title>
+
 </head>
+
 <body>
+
     <h1>Bem-vindo ao PixelU! 🎮</h1>
 
-<h2>
-    Responda algumas perguntas, descubra seu perfil e crie um avatar
-    que representa você no mundo de Sistemas para Internet!
-</h2>
-<section id="perguntas">
-    <div id="pessoais">
+    <h2>
+        Responda algumas perguntas, descubra seu perfil e crie um avatar
+        que representa você no mundo de Sistemas para Internet!
+    </h2>
 
-    <h2> Informações Pessoais </h2>
-    <h3> Qual seu nome ou apelido? </h3>
-<input type="text" placeholder="Digite seu nome ou apelido">
+    <section id="perguntas">
 
-<h3>Qual é o seu gênero?</h3>
+        <div id="pessoais">
 
-<label>
-    <input type="radio" name="genero" value="masculino">
-    Masculino
-</label>
+            <h2>Informações Pessoais</h2>
 
-<label>
-    <input type="radio" name="genero" value="feminino">
-    Feminino
-</label>
-
-<label>
-    <input type="radio" name="genero" value="outro">
-    Outro
-</label>
-
-<label>
-    <input type="radio" name="genero" value="nao_informar">
-    Prefiro não informar
-</label>
+            <h3>01. Qual é o seu nome ou apelido?</h3>
+            <input type="text" placeholder="Digite seu nome ou apelido">
 
 
-<h3>Qual é a sua idade?</h3>
+            <h3>02. Qual é o seu gênero?</h3>
 
-<input type="number" placeholder="Digite sua idade" min="1" max="100">
+            <label>
+                <input type="radio" name="genero" value="masculino">
+                Masculino
+            </label>
+
+            <label>
+                <input type="radio" name="genero" value="feminino">
+                Feminino
+            </label>
+
+            <label>
+                <input type="radio" name="genero" value="outro">
+                Outro
+            </label>
+
+            <label>
+                <input type="radio" name="genero" value="nao_informar">
+                Prefiro não informar
+            </label>
 
 
-<h3>Você tem conhecimento sobre programação, redes ou algo relacionado à TI?</h3>
+            <h3>03. Qual é a sua idade?</h3>
 
-<label>
-    <input type="radio" name="conhecimento" value="sim">
-    Sim
-</label>
+            <input type="number" placeholder="Digite sua idade" min="1" max="100">
 
-<label>
-    <input type="radio" name="conhecimento" value="nao">
-    Não
-</label>
-</div>
-<div id="personalidade">
-    <h3>Você é uma pessoa extrovertida ou introvertida?</h3>
-    <label>
-        <input type="radio" name="personalidade" value="extrovertido">
-        Extrovertido
-    </label>
-    <label>
-        <input type="radio" name="personalidade" value="introvertido">
-        Introvertido
-    </label>
-</div>
-</section>
+
+            <h3>04. Você tem conhecimento sobre programação, redes ou algo relacionado à TI?</h3>
+
+            <label>
+                <input type="radio" name="conhecimento" value="sim">
+                Sim
+            </label>
+
+            <label>
+                <input type="radio" name="conhecimento" value="nao">
+                Não
+            </label>
+
+        </div>
+
+
+        <div id="personalidade">
+
+            <h2>Personalidade</h2>
+
+            <h3>01. Você é uma pessoa extrovertida ou introvertida?</h3>
+
+            <label>
+                <input type="radio" name="personalidade" value="extrovertido">
+                Extrovertido
+            </label>
+
+            <label>
+                <input type="radio" name="personalidade" value="introvertido">
+                Introvertido
+            </label>
+
+
+            <h3>02. Qual dessas opções mais combina com os seus gostos?</h3>
+
+            <label>
+                <input type="radio" name="gosto" value="geek">
+                🤓 Cultura Geek
+            </label>
+
+            <label>
+                <input type="radio" name="gosto" value="pop">
+                🎬 Cultura Pop
+            </label>
+
+            <label>
+                <input type="radio" name="gosto" value="games">
+                🎮 Games
+            </label>
+
+            <label>
+                <input type="radio" name="gosto" value="tecnologia">
+                💻 Tecnologia
+            </label>
+
+            <label>
+                <input type="radio" name="gosto" value="nenhum">
+                ✨ Nenhuma dessas
+            </label>
+
+
+            <h3>03. Você se considera uma pessoa criativa? Exemplo: gosta de desenhar, criar histórias ou inventar coisas.</h3>
+
+            <label>
+                <input type="radio" name="criatividade" value="sim">
+                Sim
+            </label>
+
+            <label>
+                <input type="radio" name="criatividade" value="nao">
+                Não
+            </label>
+
+
+            <h3>04. Você já ficou curioso(a) sobre como um site, game ou aplicativo funciona por dentro?</h3>
+
+            <label>
+                <input type="radio" name="curiosidade" value="sim">
+                Sim
+            </label>
+
+            <label>
+                <input type="radio" name="curiosidade" value="nao">
+                Não
+            </label>
+
+
+            <h3>05. Você já ficou curioso(a) sobre como a internet conecta pessoas e permite que você acesse sites e aplicativos de qualquer lugar?</h3>
+
+            <label>
+                <input type="radio" name="internet" value="sim">
+                Sim
+            </label>
+
+            <label>
+                <input type="radio" name="internet" value="nao">
+                Não
+            </label>
+
+
+            <h3>06. Quando aparece um problema, como você costuma agir?</h3>
+
+            <label>
+                <input type="radio" name="problema" value="pesquisar">
+                🔎 Pesquiso até encontrar uma solução
+            </label>
+
+            <label>
+                <input type="radio" name="problema" value="testar">
+                🧪 Vou testando possibilidades
+            </label>
+
+            <label>
+                <input type="radio" name="problema" value="ajuda">
+                🤝 Peço ajuda para alguém
+            </label>
+
+            <label>
+                <input type="radio" name="problema" value="planejar">
+                🧠 Penso bastante antes de tentar
+            </label>
+
+
+            <h3>07. Quando você tem liberdade para criar algo, o que mais te atrai?</h3>
+
+            <label>
+                <input type="radio" name="criacao" value="visual">
+                🎨 Criar algo bonito e visual
+            </label>
+
+            <label>
+                <input type="radio" name="criacao" value="funcional">
+                ⚙️ Fazer algo funcionar
+            </label>
+
+            <label>
+                <input type="radio" name="criacao" value="inovador">
+                💡 Criar algo diferente
+            </label>
+
+            <label>
+                <input type="radio" name="criacao" value="util">
+                🛠️ Criar algo útil para outras pessoas
+            </label>
+
+
+            <h3>08. Como você prefere trabalhar?</h3>
+
+            <label>
+                <input type="radio" name="equipe" value="equipe">
+                👥 Com outras pessoas
+            </label>
+
+            <label>
+                <input type="radio" name="equipe" value="sozinho">
+                🧑‍💻 Sozinho
+            </label>
+
+            <label>
+                <input type="radio" name="equipe" value="depende">
+                🔄 Depende da situação
+            </label>
+
+
+            <h3>09. Qual dessas áreas mais desperta sua curiosidade?</h3>
+
+            <label>
+                <input type="radio" name="tecnologia" value="programacao">
+                💻 Programação
+            </label>
+
+            <label>
+                <input type="radio" name="tecnologia" value="design">
+                🎨 Design e interfaces
+            </label>
+
+            <label>
+                <input type="radio" name="tecnologia" value="redes">
+                🌐 Redes e internet
+            </label>
+
+            <label>
+                <input type="radio" name="tecnologia" value="dados">
+                📊 Dados e informações
+            </label>
+
+            <label>
+                <input type="radio" name="tecnologia" value="seguranca">
+                🔐 Segurança
+            </label>
+
+            <label>
+                <input type="radio" name="tecnologia" value="nao_sei">
+                🤔 Ainda não sei
+            </label>
+
+
+            <h3>10. Se você pudesse criar qualquer coisa com tecnologia, o que faria?</h3>
+
+            <label>
+                <input type="radio" name="projeto" value="app">
+                📱 Um aplicativo
+            </label>
+
+            <label>
+                <input type="radio" name="projeto" value="site">
+                🌐 Um site
+            </label>
+
+            <label>
+                <input type="radio" name="projeto" value="game">
+                🎮 Um jogo
+            </label>
+
+            <label>
+                <input type="radio" name="projeto" value="sistema">
+                ⚙️ Um sistema para resolver um problema
+            </label>
+
+            <label>
+                <input type="radio" name="projeto" value="rede">
+                🌎 Uma tecnologia para conectar pessoas
+            </label>
+
+            <label>
+                <input type="radio" name="projeto" value="nao_sei">
+                💭 Ainda não faço ideia
+            </label>
+
+
+            <h3>11. O que mais te motiva quando aprende algo novo?</h3>
+
+            <label>
+                <input type="radio" name="motivacao" value="curiosidade">
+                🔎 Descobrir como as coisas funcionam
+            </label>
+
+            <label>
+                <input type="radio" name="motivacao" value="criacao">
+                🎨 Poder criar algo meu
+            </label>
+
+            <label>
+                <input type="radio" name="motivacao" value="desafio">
+                🧩 Resolver desafios
+            </label>
+
+            <label>
+                <input type="radio" name="motivacao" value="pessoas">
+                🤝 Ajudar outras pessoas
+            </label>
+
+            <label>
+                <input type="radio" name="motivacao" value="futuro">
+                🚀 Pensar no meu futuro
+            </label>
+
+        </div>
+
+    </section>
+
 </body>
+
 </html>
