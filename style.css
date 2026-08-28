@@ -1,0 +1,224 @@
+/* ==============================
+   PIXELU - ESTILO GAMER
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #25204d 0%, #121126 45%, #090912 100%);
+    color: #f5f5f5;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* ==============================
+   CABEÇALHO
+   ============================== */
+
+body > h1 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-shadow:
+        0 0 10px #7c4dff,
+        0 0 25px #7c4dff;
+}
+
+body > h2 {
+    max-width: 850px;
+    margin: 0 auto 45px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: normal;
+    color: #c9c5dc;
+}
+
+/* ==============================
+   ÁREA DAS PERGUNTAS
+   ============================== */
+
+#perguntas {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ==============================
+   CARDS
+   ============================== */
+
+#pessoais,
+#personalidade {
+    background: rgba(20, 18, 40, 0.9);
+    border: 1px solid rgba(124, 77, 255, 0.35);
+    border-radius: 18px;
+    padding: 35px;
+    margin-bottom: 30px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(124, 77, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+/* ==============================
+   TÍTULOS DAS SEÇÕES
+   ============================== */
+
+#pessoais > h2,
+#personalidade > h2 {
+    font-size: 27px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    border-bottom: 2px solid #7c4dff;
+    padding-bottom: 12px;
+}
+
+/* ==============================
+   PERGUNTAS
+   ============================== */
+
+h3 {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #e7e2ff;
+}
+
+/* ==============================
+   INPUT DE TEXTO E NÚMERO
+   ============================== */
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 14px 16px;
+
+    background: #0d0c18;
+    color: white;
+
+    border: 1px solid #393452;
+    border-radius: 10px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #7c4dff;
+
+    box-shadow:
+        0 0 0 3px rgba(124, 77, 255, 0.15),
+        0 0 15px rgba(124, 77, 255, 0.2);
+}
+
+input::placeholder {
+    color: #77738b;
+}
+
+/* ==============================
+   OPÇÕES
+   ============================== */
+
+label {
+    display: block;
+
+    background: #151329;
+    border: 1px solid #302c49;
+
+    padding: 13px 15px;
+    margin: 8px 0;
+
+    border-radius: 10px;
+
+    color: #c9c5dc;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border 0.2s,
+        transform 0.2s;
+}
+
+label:hover {
+    background: #211d3c;
+    border-color: #7c4dff;
+    transform: translateX(4px);
+}
+
+/* ==============================
+   RADIO
+   ============================== */
+
+input[type="radio"] {
+    accent-color: #7c4dff;
+    margin-right: 10px;
+    transform: scale(1.1);
+}
+
+/* ==============================
+   EFEITO QUANDO SELECIONADO
+   ============================== */
+
+label:has(input[type="radio"]:checked) {
+    background: rgba(124, 77, 255, 0.18);
+    border-color: #7c4dff;
+    color: #ffffff;
+
+    box-shadow:
+        0 0 12px rgba(124, 77, 255, 0.15);
+}
+
+/* ==============================
+   RESPONSIVIDADE
+   ============================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    body > h1 {
+        font-size: 30px;
+    }
+
+    body > h2 {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    #pessoais,
+    #personalidade {
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    #pessoais > h2,
+    #personalidade > h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
