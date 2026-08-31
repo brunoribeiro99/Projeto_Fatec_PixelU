@@ -1,7 +1,3 @@
-/* ==============================
-   PIXELU - ESTILO GAMER
-   ============================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -14,211 +10,330 @@ body {
         radial-gradient(circle at top, #25204d 0%, #121126 45%, #090912 100%);
     color: #f5f5f5;
     min-height: 100vh;
-    padding: 40px 20px;
 }
 
-/* ==============================
-   CABEÇALHO
-   ============================== */
 
-body > h1 {
-    text-align: center;
+/* Cabeçalho */
+
+main > .text-center {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main > .text-center h1 {
     font-size: 42px;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 1px;
     color: #ffffff;
     text-shadow:
         0 0 10px #7c4dff,
-        0 0 25px #7c4dff;
+        0 0 25px rgba(124, 77, 255, 0.7);
+    margin-bottom: 18px;
 }
 
-body > h2 {
-    max-width: 850px;
-    margin: 0 auto 45px;
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.6;
-    font-weight: normal;
-    color: #c9c5dc;
+main > .text-center .lead {
+    color: #bdb8d2;
+    font-size: 17px;
+    line-height: 1.7;
 }
 
-/* ==============================
-   ÁREA DAS PERGUNTAS
-   ============================== */
 
-#perguntas {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-}
+/* Cards principais */
 
-/* ==============================
-   CARDS
-   ============================== */
-
-#pessoais,
-#personalidade {
-    background: rgba(20, 18, 40, 0.9);
-    border: 1px solid rgba(124, 77, 255, 0.35);
+.card {
+    background: rgba(20, 18, 40, 0.92);
+    border: 1px solid rgba(124, 77, 255, 0.30);
     border-radius: 18px;
-    padding: 35px;
-    margin-bottom: 30px;
-
+    color: #f5f5f5;
     box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.4),
-        0 0 25px rgba(124, 77, 255, 0.08);
-
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(124, 77, 255, 0.06);
     backdrop-filter: blur(10px);
+    overflow: hidden;
 }
 
-/* ==============================
-   TÍTULOS DAS SEÇÕES
-   ============================== */
+.card-body {
+    padding: 32px;
+}
 
-#pessoais > h2,
-#personalidade > h2 {
-    font-size: 27px;
-    margin-bottom: 30px;
+
+/* Títulos das seções */
+
+.card-title {
+    font-size: 25px;
+    font-weight: 600;
     color: #ffffff;
     border-bottom: 2px solid #7c4dff;
-    padding-bottom: 12px;
+    padding-bottom: 13px;
+    margin-bottom: 30px !important;
 }
 
-/* ==============================
-   PERGUNTAS
-   ============================== */
 
-h3 {
-    font-size: 17px;
+/* Perguntas */
+
+.form-label {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 0 14px;
+    color: #e9e5f5;
+    font-size: 16px;
+    font-weight: 500;
     line-height: 1.5;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: #e7e2ff;
 }
 
-/* ==============================
-   INPUT DE TEXTO E NÚMERO
-   ============================== */
+.form-label:hover {
+    background: transparent;
+    border: none;
+    transform: none;
+}
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 14px 16px;
 
-    background: #0d0c18;
-    color: white;
+/* Campos de texto */
 
+.form-control,
+.form-select {
+    background-color: #0d0c18;
+    color: #ffffff;
     border: 1px solid #393452;
     border-radius: 10px;
-
-    font-size: 15px;
-    outline: none;
-
-    transition: 0.3s;
+    padding: 12px 15px;
+    transition: 0.25s ease;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-color: #7c4dff;
-
-    box-shadow:
-        0 0 0 3px rgba(124, 77, 255, 0.15),
-        0 0 15px rgba(124, 77, 255, 0.2);
-}
-
-input::placeholder {
+.form-control::placeholder {
     color: #77738b;
 }
 
-/* ==============================
-   OPÇÕES
-   ============================== */
+.form-control:focus,
+.form-select:focus {
+    background-color: #0d0c18;
+    color: #ffffff;
+    border-color: #7c4dff;
+    box-shadow:
+        0 0 0 3px rgba(124, 77, 255, 0.14),
+        0 0 15px rgba(124, 77, 255, 0.15);
+}
 
-label {
-    display: block;
+
+/* Campo de gênero */
+
+#genero {
+    background-color: #0d0c18;
+    color: #ffffff;
+    border-color: #393452;
+}
+
+#genero option {
+    background-color: #151329;
+    color: #ffffff;
+}
+
+
+/* Área das respostas */
+
+.form-check {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.form-check-label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 12px 15px 12px 42px;
 
     background: #151329;
     border: 1px solid #302c49;
-
-    padding: 13px 15px;
-    margin: 8px 0;
-
     border-radius: 10px;
 
     color: #c9c5dc;
-
     cursor: pointer;
 
     transition:
-        background 0.2s,
-        border 0.2s,
-        transform 0.2s;
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-label:hover {
+.form-check-label:hover {
     background: #211d3c;
     border-color: #7c4dff;
-    transform: translateX(4px);
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
-/* ==============================
-   RADIO
-   ============================== */
 
-input[type="radio"] {
-    accent-color: #7c4dff;
-    margin-right: 10px;
-    transform: scale(1.1);
+/* Radio e checkbox */
+
+.form-check-input {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+
+    width: 17px;
+    height: 17px;
+
+    background-color: #0d0c18;
+    border-color: #514b6d;
+    cursor: pointer;
 }
 
-/* ==============================
-   EFEITO QUANDO SELECIONADO
-   ============================== */
+.form-check-input:checked {
+    background-color: #7c4dff;
+    border-color: #7c4dff;
+}
 
-label:has(input[type="radio"]:checked) {
-    background: rgba(124, 77, 255, 0.18);
+.form-check-input:focus {
+    box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.15);
+}
+
+
+/* Resposta selecionada */
+
+.form-check-label:has(.form-check-input:checked) {
+    background: rgba(124, 77, 255, 0.16);
     border-color: #7c4dff;
     color: #ffffff;
 
     box-shadow:
-        0 0 12px rgba(124, 77, 255, 0.15);
+        0 0 12px rgba(124, 77, 255, 0.12);
 }
 
-/* ==============================
-   RESPONSIVIDADE
-   ============================== */
 
-@media (max-width: 700px) {
+/* Botão principal */
 
-    body {
-        padding: 25px 12px;
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #7c4dff,
+        #6335d6
+    );
+
+    border: none;
+    border-radius: 12px;
+
+    padding: 13px 30px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 20px rgba(124, 77, 255, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(
+        135deg,
+        #8b63ff,
+        #7042e6
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 25px rgba(124, 77, 255, 0.35);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+
+/* Espaçamento das perguntas */
+
+.mb-4 {
+    margin-bottom: 28px !important;
+}
+
+
+/* Última área do formulário */
+
+.card:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    main {
+        padding-top: 30px !important;
     }
 
-    body > h1 {
-        font-size: 30px;
+    main > .text-center h1 {
+        font-size: 32px;
     }
 
-    body > h2 {
+    main > .text-center .lead {
         font-size: 15px;
-        margin-bottom: 30px;
+        line-height: 1.6;
     }
 
-    #pessoais,
-    #personalidade {
+    .card-body {
         padding: 22px;
-        border-radius: 14px;
     }
 
-    #pessoais > h2,
-    #personalidade > h2 {
+    .card-title {
         font-size: 22px;
     }
 
-    h3 {
+    .form-label {
         font-size: 15px;
     }
 
-    label {
+    .form-check-label {
         font-size: 14px;
+        min-height: 46px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    main {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    main > .text-center h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        border-radius: 14px;
+    }
+
+    .card-body {
+        padding: 18px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .form-check-label {
+        padding-left: 40px;
     }
 }
