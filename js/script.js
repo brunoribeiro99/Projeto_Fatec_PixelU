@@ -434,3 +434,7 @@ q11: {
 }
 //=========================================
 };
+//================Calculos=========================
+const respostaQ1 = document.querySelector('input[name="q1"]:checked');
+
+const pontosQ1 = pontuacao.q1[respostaQ1.id].programacao;
