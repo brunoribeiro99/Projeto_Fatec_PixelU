@@ -435,6 +435,495 @@ q11: {
 //=========================================
 };
 //================Calculos=========================
-const respostaQ1 = document.querySelector('input[name="q1"]:checked');
 
-const pontosQ1 = pontuacao.q1[respostaQ1.id].programacao;
+// ========================================
+// 🎮 CALCULO DO RESULTADO PIXELU
+// ========================================
+
+// Pontuação final das classes
+const resultado = {
+    programacao: 0,
+    design: 0,
+    redes: 0,
+    seguranca: 0,
+    suporte: 0
+};
+
+
+// ========================================
+// ➕ SOMAR OS PONTOS
+// ========================================
+
+function somarPontos(pontos) {
+
+    resultado.programacao += pontos.programacao;
+    resultado.design += pontos.design;
+    resultado.redes += pontos.redes;
+    resultado.seguranca += pontos.seguranca;
+    resultado.suporte += pontos.suporte;
+
+}
+
+
+// ========================================
+// ❓ Q1
+// ========================================
+
+function calcularQ1() {
+
+    const resposta = document.querySelector(
+        'input[name="personalidade"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q1[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q2
+// PODE ESCOLHER VÁRIAS
+// ========================================
+
+function calcularQ2() {
+
+    const respostas = document.querySelectorAll(
+        'input[name="gosto"]:checked'
+    );
+
+    respostas.forEach(resposta => {
+
+        const pontos = pontuacao.q2[resposta.id];
+
+        somarPontos(pontos);
+
+    });
+
+}
+
+
+// ========================================
+// ❓ Q3
+// ========================================
+
+function calcularQ3() {
+
+    const resposta = document.querySelector(
+        'input[name="criatividade"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q3[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q4
+// ========================================
+
+function calcularQ4() {
+
+    const resposta = document.querySelector(
+        'input[name="curiosidade"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q4[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q5
+// ========================================
+
+function calcularQ5() {
+
+    const resposta = document.querySelector(
+        'input[name="internet"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q5[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q6
+// ========================================
+
+function calcularQ6() {
+
+    const resposta = document.querySelector(
+        'input[name="problema"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q6[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q7
+// ========================================
+
+function calcularQ7() {
+
+    const resposta = document.querySelector(
+        'input[name="criacao"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q7[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q8
+// ========================================
+
+function calcularQ8() {
+
+    const resposta = document.querySelector(
+        'input[name="equipe"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q8[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q9
+// ========================================
+
+function calcularQ9() {
+
+    const resposta = document.querySelector(
+        'input[name="tecnologia"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q9[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q10
+// ========================================
+
+function calcularQ10() {
+
+    const resposta = document.querySelector(
+        'input[name="projeto"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q10[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// ❓ Q11
+// ========================================
+
+function calcularQ11() {
+
+    const resposta = document.querySelector(
+        'input[name="motivacao"]:checked'
+    );
+
+    if (!resposta) return;
+
+    const pontos = pontuacao.q11[resposta.id];
+
+    somarPontos(pontos);
+
+}
+
+
+// ========================================
+// 📊 CALCULAR TUDO
+// ========================================
+
+function calcularResultado() {
+
+    // Zera antes de calcular
+    resultado.programacao = 0;
+    resultado.design = 0;
+    resultado.redes = 0;
+    resultado.seguranca = 0;
+    resultado.suporte = 0;
+
+
+    // Calcula todas as perguntas
+    calcularQ1();
+    calcularQ2();
+    calcularQ3();
+    calcularQ4();
+    calcularQ5();
+    calcularQ6();
+    calcularQ7();
+    calcularQ8();
+    calcularQ9();
+    calcularQ10();
+    calcularQ11();
+
+
+    // Mostra no console
+    console.log("========== PIXELU ==========");
+    console.log("💻 Programação:", resultado.programacao);
+    console.log("🎨 Design:", resultado.design);
+    console.log("🌐 Redes:", resultado.redes);
+    console.log("🔐 Segurança:", resultado.seguranca);
+    console.log("🛠️ Suporte:", resultado.suporte);
+
+
+    // Mostra na página
+    mostrarResultado();
+
+}
+
+
+// ========================================
+// 🏆 DESCOBRIR MAIOR PONTUAÇÃO
+// ========================================
+
+function descobrirVencedor() {
+
+    let vencedor = "programacao";
+
+    for (const classe in resultado) {
+
+        if (resultado[classe] > resultado[vencedor]) {
+            vencedor = classe;
+        }
+
+    }
+
+    return vencedor;
+
+}
+
+
+// ========================================
+// 🎮 TABELA RPG
+// ========================================
+
+function mostrarResultado() {
+
+    const areaResultado = document.getElementById("resultado");
+    const vencedor = descobrirVencedor();
+
+    areaResultado.innerHTML = `
+
+        <div class="classe-principal">
+
+            <div class="icone">
+                ${classes[vencedor].icone}
+            </div>
+
+            <div class="titulo">
+                SUA CLASSE PIXELU
+            </div>
+
+            <h3>
+                ${classes[vencedor].nome}
+            </h3>
+
+            <div class="pontos">
+                ${resultado[vencedor]} XP
+            </div>
+
+            <p class="rpg-descricao">
+                ${classes[vencedor].descricao}
+            </p>
+
+        </div>
+
+
+        <div class="tabela-rpg">
+
+            <div class="tabela-rpg-titulo">
+                ⚔️ ATRIBUTOS DO PERSONAGEM
+            </div>
+
+
+            <div class="rpg-linha">
+
+                <div class="rpg-classe">
+                    <span class="icone-classe">
+                        ${classes.programacao.icone}
+                    </span>
+
+                    <span class="nome-classe">
+                        ${classes.programacao.nome}
+                    </span>
+                </div>
+
+                <div class="rpg-xp">
+                    <div class="barra-xp">
+                        <div
+                            class="barra-xp-preenchida"
+                            style="width: ${resultado.programacao * 2}%">
+                        </div>
+                    </div>
+
+                    <span class="rpg-pontos">
+                        ${resultado.programacao} XP
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="rpg-linha">
+
+                <div class="rpg-classe">
+                    <span class="icone-classe">
+                        ${classes.design.icone}
+                    </span>
+
+                    <span class="nome-classe">
+                        ${classes.design.nome}
+                    </span>
+                </div>
+
+                <div class="rpg-xp">
+                    <div class="barra-xp">
+                        <div
+                            class="barra-xp-preenchida"
+                            style="width: ${resultado.design * 2}%">
+                        </div>
+                    </div>
+
+                    <span class="rpg-pontos">
+                        ${resultado.design} XP
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="rpg-linha">
+
+                <div class="rpg-classe">
+                    <span class="icone-classe">
+                        ${classes.redes.icone}
+                    </span>
+
+                    <span class="nome-classe">
+                        ${classes.redes.nome}
+                    </span>
+                </div>
+
+                <div class="rpg-xp">
+                    <div class="barra-xp">
+                        <div
+                            class="barra-xp-preenchida"
+                            style="width: ${resultado.redes * 2}%">
+                        </div>
+                    </div>
+
+                    <span class="rpg-pontos">
+                        ${resultado.redes} XP
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="rpg-linha">
+
+                <div class="rpg-classe">
+                    <span class="icone-classe">
+                        ${classes.seguranca.icone}
+                    </span>
+
+                    <span class="nome-classe">
+                        ${classes.seguranca.nome}
+                    </span>
+                </div>
+
+                <div class="rpg-xp">
+                    <div class="barra-xp">
+                        <div
+                            class="barra-xp-preenchida"
+                            style="width: ${resultado.seguranca * 2}%">
+                        </div>
+                    </div>
+
+                    <span class="rpg-pontos">
+                        ${resultado.seguranca} XP
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="rpg-linha">
+
+                <div class="rpg-classe">
+                    <span class="icone-classe">
+                        ${classes.suporte.icone}
+                    </span>
+
+                    <span class="nome-classe">
+                        ${classes.suporte.nome}
+                    </span>
+                </div>
+
+                <div class="rpg-xp">
+                    <div class="barra-xp">
+                        <div
+                            class="barra-xp-preenchida"
+                            style="width: ${resultado.suporte * 2}%">
+                        </div>
+                    </div>
+
+                    <span class="rpg-pontos">
+                        ${resultado.suporte} XP
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
