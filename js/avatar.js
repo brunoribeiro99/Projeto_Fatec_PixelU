@@ -6,20 +6,20 @@ const avatarConfig = {
 
         programacao: {
             nome: "Programacao",
-            masculino: 10,
-            feminino: 10
+            masculino: 20,
+            feminino: 20
         },
 
         design: {
             nome: "Designer",
-            masculino: 10,
-            feminino: 10
+            masculino: 20,
+            feminino: 20
         },
 
         redes: {
             nome: "Redes",
             masculino: 20,
-            feminino: 10
+            feminino: 20
         },
 
         seguranca: {
