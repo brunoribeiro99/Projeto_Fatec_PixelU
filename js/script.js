@@ -28,12 +28,6 @@ const classes = {
         descricao: "Proteger sistemas e informações."
     },
 
-    suporte: {
-        nome: "Tecnologia e Suporte",
-        icone: "🛠️",
-        descricao: "Configurar, resolver problemas e ajudar pessoas com tecnologia."
-    }
-
 };
 
 
@@ -55,7 +49,7 @@ const pontuacao = {
             design: 4,
             redes: 3,
             seguranca: 2,
-            suporte: 5
+            
         },
         // Introvertido(a)
         q1b: {
@@ -63,7 +57,7 @@ const pontuacao = {
             design: 4,
             redes: 2,
             seguranca: 3,
-            suporte: 1
+            
         }
 
     },
@@ -81,7 +75,7 @@ const pontuacao = {
             design: 5,
             redes: 3,
             seguranca: 1,
-            suporte: 4
+            
         },
 
         // As funções e ferramentas
@@ -90,7 +84,7 @@ const pontuacao = {
             design: 3,
             redes: 4,
             seguranca: 5,
-            suporte: 3
+            
         },
 
         // A velocidade e o desempenho da pagina
@@ -99,7 +93,7 @@ const pontuacao = {
             design: 2,
             redes: 5,
             seguranca: 3,
-            suporte: 3
+            
         },
 
         // A segurança e privacidade da pagina
@@ -108,7 +102,7 @@ const pontuacao = {
             design: 2,
             redes: 4,
             seguranca: 4,
-            suporte: 1
+            
         }
 
     },
@@ -126,7 +120,7 @@ const pontuacao = {
             design: 3,
             redes: 2,
             seguranca: 2,
-            suporte: 2
+            
         },
 
         // Criar uma interface bonita
@@ -135,7 +129,7 @@ const pontuacao = {
             design: 5,
             redes: 1,
             seguranca: 1,
-            suporte: 2
+            
         },
 
         // Fazer computadores se conectarem
@@ -144,7 +138,7 @@ const pontuacao = {
             design: 1,
             redes: 5,
             seguranca: 3,
-            suporte: 4
+            
         },
 
         // Descobrir e impedir uma invasão
@@ -153,7 +147,7 @@ const pontuacao = {
             design: 1,
             redes: 4,
             seguranca: 5,
-            suporte: 4
+            
         },
 
         // Resolver um problema de computador
@@ -162,7 +156,7 @@ const pontuacao = {
             design: 1,
             redes: 4,
             seguranca: 3,
-            suporte: 5
+            
         }
 
     },
@@ -180,7 +174,7 @@ const pontuacao = {
             design: 1,
             redes: 3,
             seguranca: 2,
-            suporte: 4
+            
         },
 
         // Acho que a interface poderia ser melhor
@@ -189,7 +183,7 @@ const pontuacao = {
             design: 5,
             redes: 2,
             seguranca: 1,
-            suporte: 3
+            
         },
 
         // Procuro uma forma de resolver o problema
@@ -198,7 +192,7 @@ const pontuacao = {
             design: 1,
             redes: 2,
             seguranca: 2,
-            suporte: 5
+            
         }
 
     },
@@ -216,7 +210,7 @@ const pontuacao = {
             design: 1,
             redes: 5,
             seguranca: 4,
-            suporte: 4
+            
         },
 
         // Nunca parei para pensar nisso
@@ -225,7 +219,7 @@ const pontuacao = {
             design: 5,
             redes: 1,
             seguranca: 2,
-            suporte: 3
+            
         }
 
     },
@@ -243,7 +237,7 @@ const pontuacao = {
             design: 5,
             redes: 2,
             seguranca: 2,
-            suporte: 3
+            
         },
 
         // Gosto de resolver problemas
@@ -252,7 +246,7 @@ const pontuacao = {
             design: 3,
             redes: 1,
             seguranca: 1,
-            suporte: 5
+            
         },
 
         // Gosto de ajudar outras pessoas
@@ -261,7 +255,7 @@ const pontuacao = {
             design: 2,
             redes: 3,
             seguranca: 4,
-            suporte: 5
+            
         },
 
         // Gosto de descobrir como as coisas funcionam
@@ -270,7 +264,7 @@ const pontuacao = {
             design: 3,
             redes: 4,
             seguranca: 3,
-            suporte: 4
+            
         }
 
     },
@@ -288,7 +282,7 @@ const pontuacao = {
             design: 4,
             redes: 3,
             seguranca: 2,
-            suporte: 2
+            
         },
 
         // Criar designs e interfaces
@@ -297,7 +291,7 @@ const pontuacao = {
             design: 5,
             redes: 1,
             seguranca: 1,
-            suporte: 3
+            
         },
 
         // Montar e configurar redes
@@ -306,7 +300,7 @@ const pontuacao = {
             design: 1,
             redes: 5,
             seguranca: 4,
-            suporte: 5
+            
         },
 
         // Aprender sobre segurança digital
@@ -315,7 +309,7 @@ const pontuacao = {
             design: 1,
             redes: 4,
             seguranca: 5,
-            suporte: 3
+            
         },
 
         // Aprender a configurar e solucionar problemas
@@ -324,7 +318,7 @@ const pontuacao = {
             design: 2,
             redes: 4,
             seguranca: 3,
-            suporte: 5
+            
         }
 
     },
@@ -343,7 +337,7 @@ const pontuacao = {
             design: 1,
             redes: 1,
             seguranca: 4,
-            suporte: 3
+            
         },
 
         // Em equipe, trocando ideias
@@ -352,7 +346,7 @@ const pontuacao = {
             design: 4,
             redes: 5,
             seguranca: 3,
-            suporte: 5
+            
         },
 
         // Ajudando e conversando com pessoas
@@ -361,7 +355,7 @@ const pontuacao = {
             design: 4,
             redes: 4,
             seguranca: 4,
-            suporte: 5
+            
         }
 
     },
@@ -379,7 +373,7 @@ const pontuacao = {
             design: 4,
             redes: 1,
             seguranca: 1,
-            suporte: 3
+            
         },
 
         //  Design e criação
@@ -388,7 +382,7 @@ const pontuacao = {
             design: 5,
             redes: 1,
             seguranca: 1,
-            suporte: 4
+            
         },
 
         // Redes e Internet
@@ -397,7 +391,7 @@ const pontuacao = {
             design: 2,
             redes: 5,
             seguranca: 4,
-            suporte: 3
+           
         },
 
         //  Cibersegurança
@@ -406,27 +400,8 @@ const pontuacao = {
             design: 1,
             redes: 4,
             seguranca: 5,
-            suporte: 3
+            
         },
-
-        // Tecnologia e Suporte
-        q9e: {
-            programacao: 3,
-            design: 1,
-            redes: 4,
-            seguranca: 3,
-            suporte: 5
-        },
-
-        // Novas tecnologias
-        q9f: {
-            programacao: 3,
-            design: 1,
-            redes: 4,
-            seguranca: 1,
-            suporte: 5
-        }
-
     },
 
 
@@ -442,7 +417,7 @@ const pontuacao = {
             design: 5,
             redes: 1,
             seguranca: 1,
-            suporte: 3
+            
         },
 
         // Enfrentar um desafio
@@ -451,7 +426,7 @@ const pontuacao = {
             design: 4,
             redes: 2,
             seguranca: 2,
-            suporte: 5
+            
         },
 
         // Descobrir como algo funciona
@@ -460,7 +435,7 @@ const pontuacao = {
             design: 4,
             redes: 1,
             seguranca: 1,
-            suporte: 5
+            
         },
 
         // Poder ajudar alguém
@@ -469,7 +444,7 @@ const pontuacao = {
             design: 1,
             redes: 4,
             seguranca: 2,
-            suporte: 5
+            
         },
 
         // Melhorar algo que já existe
@@ -478,7 +453,7 @@ const pontuacao = {
             design: 4,
             redes: 3,
             seguranca: 2,
-            suporte: 5
+            
         },
 
         // Satisfazer minha curiosidade
@@ -487,7 +462,7 @@ const pontuacao = {
             design: 3,
             redes: 5,
             seguranca: 2,
-            suporte: 2
+            
         }
 
     }
@@ -504,8 +479,7 @@ const resultado = {
     programacao: 0,
     design: 0,
     redes: 0,
-    seguranca: 0,
-    suporte: 0
+    seguranca: 0
 
 };
 
@@ -522,7 +496,6 @@ function somarPontos(pontos) {
     resultado.design += pontos.design;
     resultado.redes += pontos.redes;
     resultado.seguranca += pontos.seguranca;
-    resultado.suporte += pontos.suporte;
 
 }
 
@@ -732,7 +705,6 @@ function calcularResultado() {
     resultado.design = 0;
     resultado.redes = 0;
     resultado.seguranca = 0;
-    resultado.suporte = 0;
 
 
     // Calcula as 10 perguntas
@@ -749,11 +721,10 @@ function calcularResultado() {
 
 
     console.log("========== PIXELU ==========");
-    console.log("💻 Programação:", resultado.programacao);
-    console.log("🎨 Design:", resultado.design);
-    console.log("🌐 Redes:", resultado.redes);
-    console.log("🔐 Segurança:", resultado.seguranca);
-    console.log("🛠️ Suporte:", resultado.suporte);
+    console.log("Programação:", resultado.programacao);
+    console.log("Design:", resultado.design);
+    console.log("Redes:", resultado.redes);
+    console.log("Segurança:", resultado.seguranca);
 
 
     mostrarResultado();
@@ -813,7 +784,6 @@ function mostrarResultado() {
         "design",
         "redes",
         "seguranca",
-        "suporte"
     ];
 
 
