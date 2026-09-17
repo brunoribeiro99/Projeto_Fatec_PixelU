@@ -18,7 +18,7 @@ const avatarConfig = {
 
         redes: {
             nome: "Redes",
-            masculino: 10,
+            masculino: 20,
             feminino: 10
         },
 
