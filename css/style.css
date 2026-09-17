@@ -75,7 +75,7 @@ main > .text-center:first-child {
 }
 
 main > .text-center:first-child::before {
-    content: "PIXELU // GUILD CODE";
+    content: "DevSide | Seu lado DEV";
     display: block;
     margin-bottom: 18px;
     color: var(--gold);
