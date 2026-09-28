@@ -1,7 +1,3 @@
-// ========================================
-// 🎮 CLASSES PIXELU
-// ========================================
-
 const classes = {
 
     programacao: {
@@ -855,43 +851,62 @@ function mostrarResultado() {
 
     areaResultado.innerHTML = `
 
-        <div class="classe-principal">
+        <div class="resultado-coluna-esquerda">
 
-            <div class="icone">
-                ${classes[vencedor].icone}
-            </div>
+            <div class="avatar-card" id="avatarCard"></div>
 
-
-            <div class="titulo">
-                SUA CLASSE PIXELU
-            </div>
-
-
-            <h3>
-                ${classes[vencedor].nome}
-            </h3>
-
-
-            <div class="pontos">
-                ${resultado[vencedor]} XP
-            </div>
-
-
-            <p class="rpg-descricao">
-                ${classes[vencedor].descricao}
-            </p>
+            <button
+                type="button"
+                class="btn-baixar-avatar"
+                id="btnBaixarAvatar"
+            >
+                ⬇ Baixar minha imagem
+            </button>
 
         </div>
 
 
-        <div class="tabela-rpg">
+        <div class="resultado-coluna-direita">
 
-            <div class="tabela-rpg-titulo">
-                ⚔️ ATRIBUTOS DO PERSONAGEM
+            <div class="classe-principal">
+
+                <div class="icone">
+                    ${classes[vencedor].icone}
+                </div>
+
+
+                <div class="titulo">
+                    SUA CLASSE PIXELU
+                </div>
+
+
+                <h3>
+                    ${classes[vencedor].nome}
+                </h3>
+
+
+                <div class="pontos">
+                    ${resultado[vencedor]} XP
+                </div>
+
+
+                <p class="rpg-descricao">
+                    ${classes[vencedor].descricao}
+                </p>
+
             </div>
 
 
-            ${linhasRPG}
+            <div class="tabela-rpg">
+
+                <div class="tabela-rpg-titulo">
+                    ⚔️ ATRIBUTOS DO PERSONAGEM
+                </div>
+
+
+                ${linhasRPG}
+
+            </div>
 
         </div>
 

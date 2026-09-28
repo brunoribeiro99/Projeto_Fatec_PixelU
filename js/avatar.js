@@ -207,34 +207,16 @@ function mostrarAvatarNoResultado(avatar) {
     }
 
 
-    // Procura a área de resultado
+    // Procura o card do avatar
 
-    const areaResultado =
-        document.getElementById("resultado");
-
-
-    if (!areaResultado) {
-
-        console.error(
-            "❌ Elemento #resultado não encontrado."
-        );
-
-        return;
-    }
+    const avatarCard =
+        document.getElementById("avatarCard");
 
 
-    // Procura a classe principal
-
-    const classePrincipal =
-        areaResultado.querySelector(
-            ".classe-principal"
-        );
-
-
-    if (!classePrincipal) {
+    if (!avatarCard) {
 
         console.error(
-            "❌ .classe-principal não encontrada."
+            "❌ #avatarCard não encontrado."
         );
 
         return;
@@ -245,16 +227,7 @@ function mostrarAvatarNoResultado(avatar) {
     // REMOVE AVATAR ANTERIOR
     // ========================================
 
-    const avatarAnterior =
-        classePrincipal.querySelector(
-            ".avatar-resultado"
-        );
-
-
-    if (avatarAnterior) {
-
-        avatarAnterior.remove();
-    }
+    avatarCard.innerHTML = "";
 
 
     // ========================================
@@ -300,6 +273,8 @@ function mostrarAvatarNoResultado(avatar) {
             );
 
             container.remove();
+
+            desativarBotaoBaixar();
         }
     );
 
@@ -312,10 +287,17 @@ function mostrarAvatarNoResultado(avatar) {
 
 
     // ========================================
-    // ADICIONA AVATAR AO RESULTADO
+    // ADICIONA AVATAR AO CARD
     // ========================================
 
-    classePrincipal.prepend(container);
+    avatarCard.appendChild(container);
+
+
+    // ========================================
+    // LIGA O BOTÃO DE BAIXAR
+    // ========================================
+
+    configurarBotaoBaixar(avatar);
 
 
     // ========================================
@@ -332,6 +314,89 @@ function mostrarAvatarNoResultado(avatar) {
         "🖼️ Caminho da imagem:",
         avatar.imagem
     );
+}
+
+
+// ========================================
+// NOME DO ARQUIVO PARA DOWNLOAD
+// ========================================
+
+function nomeArquivoDownload(avatar) {
+
+    const nomeInput =
+        document.getElementById("nome");
+
+    let nomeUsuario =
+        (nomeInput && nomeInput.value.trim()) || "Avatar";
+
+
+    // remove acentos e caracteres especiais
+
+    nomeUsuario = nomeUsuario
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-zA-Z0-9]+/g, "-");
+
+
+    const nomeArea =
+        classes[avatar.area]
+            ? classes[avatar.area].nome
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")
+                  .replace(/[^a-zA-Z0-9]+/g, "-")
+            : avatar.area;
+
+
+    return `${nomeUsuario}-${nomeArea}.png`;
+}
+
+
+// ========================================
+// CONFIGURA O BOTÃO DE BAIXAR
+// ========================================
+
+function configurarBotaoBaixar(avatar) {
+
+    const btnBaixar =
+        document.getElementById("btnBaixarAvatar");
+
+
+    if (!btnBaixar) {
+        return;
+    }
+
+
+    btnBaixar.disabled = false;
+
+
+    btnBaixar.onclick = function () {
+
+        const link =
+            document.createElement("a");
+
+        link.href = avatar.imagem;
+        link.download = nomeArquivoDownload(avatar);
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    };
+}
+
+
+// ========================================
+// DESATIVA O BOTÃO (ERRO NA IMAGEM)
+// ========================================
+
+function desativarBotaoBaixar() {
+
+    const btnBaixar =
+        document.getElementById("btnBaixarAvatar");
+
+    if (btnBaixar) {
+        btnBaixar.disabled = true;
+        btnBaixar.onclick = null;
+    }
 }
 
 

@@ -956,14 +956,107 @@ main > .text-center:first-child .lead {
     align-items: flex-start;
 }
 
-.resultado-container > .classe-principal {
+/* =========================================================
+   COLUNAS DO RESULTADO
+   ========================================================= */
+
+.resultado-coluna-esquerda {
     flex: 0.8 1 0;
     min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.resultado-container > .tabela-rpg {
+.resultado-coluna-direita {
     flex: 1.2 1 0;
     min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* =========================================================
+   CARD DO AVATAR
+   ========================================================= */
+
+.avatar-card {
+    background: #111827;
+
+    border: 2px solid #374151;
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 260px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.avatar-resultado {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-resultado img {
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* =========================================================
+   BOTÃO BAIXAR AVATAR
+   ========================================================= */
+
+.btn-baixar-avatar {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 13px 26px;
+
+    color: #1a1206;
+    font-size: .95rem;
+    font-weight: 700;
+
+    background:
+        linear-gradient(135deg, var(--gold-light), var(--gold));
+
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(0,0,0,.2);
+
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        filter .15s ease;
+}
+
+.btn-baixar-avatar:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+    box-shadow: 0 8px 25px rgba(232,185,75,.25);
+}
+
+.btn-baixar-avatar:active {
+    transform: translateY(0);
+}
+
+.btn-baixar-avatar:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    filter: grayscale(.4);
 }
 
 /* =========================================================
@@ -1278,8 +1371,8 @@ main > .text-center:first-child .lead {
         flex-direction: column;
     }
 
-    .resultado-container > .classe-principal,
-    .resultado-container > .tabela-rpg {
+    .resultado-coluna-esquerda,
+    .resultado-coluna-direita {
         width: 100%;
         flex: none;
     }
@@ -1288,4 +1381,3 @@ main > .text-center:first-child .lead {
         margin-bottom: 25px;
     }
 }
-
