@@ -331,6 +331,46 @@ main > .text-center:first-child .lead {
     margin-top: 0;
 }
 
+.tom-pele-titulo {
+    display: block;
+    text-align: center;
+}
+
+.tom-pele-opcoes {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tom-pele-option {
+    cursor: pointer;
+}
+
+.tom-pele-option input {
+    display: none;
+}
+
+.tom-pele-cor {
+    display: block;
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+}
+
+.pele-clara {
+    background-color: #F1C7A5;
+}
+
+.pele-escura {
+    background-color: #6B3F2A;
+}
+
+.tom-pele-option input:checked + .tom-pele-cor {
+    border: 3px solid #F58427;
+    transform: scale(1.08);
+}
 /* =========================================================
    COLUNAS DAS ALTERNATIVAS
    ========================================================= */
@@ -991,8 +1031,10 @@ main > .text-center:first-child .lead {
     padding: 20px;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 4px;
 
     min-height: 260px;
 
@@ -1012,7 +1054,27 @@ main > .text-center:first-child .lead {
     object-fit: contain;
     border-radius: 10px;
 }
+.avatar-nome {
+    margin: 12px 0 0;
 
+    color: var(--ink);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .02em;
+}
+
+.icone-classe img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.classe-principal .icone img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
 /* =========================================================
    BOTÃO BAIXAR AVATAR
    ========================================================= */

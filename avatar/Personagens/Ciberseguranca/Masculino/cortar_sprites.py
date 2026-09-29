@@ -10,13 +10,12 @@ import sys
 COLUNAS = 5
 LINHAS = 2
 
-TAMANHO = 128
-
-RESAMPLE = Image.Resampling.NEAREST
+LARGURA_SPRITE = 281
+ALTURA_SPRITE = 495
 
 
 # ============================================================
-# PROCESSAR UMA IMAGEM
+# PROCESSAR IMAGEM
 # ============================================================
 
 def cortar_sprites(caminho_imagem):
@@ -28,32 +27,63 @@ def cortar_sprites(caminho_imagem):
             f"Arquivo não encontrado: {caminho}"
         )
 
+    # Abre como RGBA = 32 bits
     imagem = Image.open(caminho).convert("RGBA")
 
     largura, altura = imagem.size
 
     print()
+    print("==========================================")
+    print("SPRITE SHEET")
+    print("==========================================")
+    print()
     print("Imagem:", caminho)
-    print("Tamanho:", largura, "x", altura)
+    print("Tamanho original:", largura, "x", altura)
+    print("Modo:", imagem.mode)
+    print()
     print("Grade:", COLUNAS, "x", LINHAS)
+    print(
+        "Tamanho final:",
+        LARGURA_SPRITE,
+        "x",
+        ALTURA_SPRITE
+    )
     print()
 
-    largura_celula = largura // COLUNAS
-    altura_celula = altura // LINHAS
+    # ========================================================
+    # TAMANHO DAS CÉLULAS
+    # ========================================================
 
-    # Nome da imagem sem extensão
+    largura_celula = largura / COLUNAS
+    altura_celula = altura / LINHAS
+
+    print(
+        "Célula original:",
+        largura_celula,
+        "x",
+        altura_celula
+    )
+    print()
+
+    # ========================================================
+    # NOME
+    # ========================================================
+
     nome = caminho.stem
 
-    # Extrai o número do arquivo
     if "(" in nome and ")" in nome:
         numero = nome.split("(")[1].split(")")[0]
     else:
         numero = "1"
 
-    # Pasta específica para este arquivo
-    pasta_saida = Path(
-        "sprites_cortados"
-    ) / f"seguranca_{numero}"
+    # ========================================================
+    # PASTA DE SAÍDA
+    # ========================================================
+
+    pasta_saida = (
+        Path("sprites_cortados")
+        / f"seguranca_{numero}"
+    )
 
     pasta_saida.mkdir(
         parents=True,
@@ -63,72 +93,83 @@ def cortar_sprites(caminho_imagem):
     contador = 1
 
     # ========================================================
-    # CORTA 5 COLUNAS x 2 LINHAS
+    # CORTAR 5 x 2
     # ========================================================
 
     for linha in range(LINHAS):
 
         for coluna in range(COLUNAS):
 
-            x0 = coluna * largura_celula
-            y0 = linha * altura_celula
+            # Coordenadas calculadas proporcionalmente
+            x0 = round(coluna * largura_celula)
+            y0 = round(linha * altura_celula)
 
-            # Última coluna/linha usa o limite real da imagem
-            x1 = (
-                largura
-                if coluna == COLUNAS - 1
-                else (coluna + 1) * largura_celula
-            )
+            x1 = round((coluna + 1) * largura_celula)
+            y1 = round((linha + 1) * altura_celula)
 
-            y1 = (
-                altura
-                if linha == LINHAS - 1
-                else (linha + 1) * altura_celula
-            )
-
+            # Recorta
             crop = imagem.crop(
                 (x0, y0, x1, y1)
             )
 
-            # Redimensiona mantendo pixel art
-            crop.thumbnail(
-                (TAMANHO, TAMANHO),
-                RESAMPLE
+            print(
+                f"Sprite {contador:02d}: "
+                f"recorte {crop.width}x{crop.height}"
             )
 
-            # Canvas transparente 128x128
-            sprite = Image.new(
-                "RGBA",
-                (TAMANHO, TAMANHO),
-                (0, 0, 0, 0)
+            # =================================================
+            # AJUSTAR PARA 281 x 495
+            # =================================================
+
+            sprite = crop.resize(
+                (
+                    LARGURA_SPRITE,
+                    ALTURA_SPRITE
+                ),
+                Image.Resampling.NEAREST
             )
 
-            # Centraliza
-            x = (TAMANHO - crop.width) // 2
-            y = (TAMANHO - crop.height) // 2
+            # Garantir RGBA
+            sprite = sprite.convert("RGBA")
 
-            sprite.alpha_composite(
-                crop,
-                (x, y)
-            )
+            # =================================================
+            # SALVAR
+            # =================================================
 
             arquivo = (
                 pasta_saida
                 / f"masculino_{contador:02d}.png"
             )
 
-            sprite.save(arquivo)
+            sprite.save(
+                arquivo,
+                format="PNG"
+            )
 
             print(
-                f"Criado: {arquivo}"
+                f"  -> criado: {arquivo.name}"
             )
 
             contador += 1
 
+    # ========================================================
+    # FINAL
+    # ========================================================
+
     print()
     print("==========================================")
-    print("10 SPRITES CRIADOS")
+    print("CONCLUÍDO")
     print("==========================================")
+    print()
+    print("Sprites:", contador - 1)
+    print(
+        "Tamanho:",
+        LARGURA_SPRITE,
+        "x",
+        ALTURA_SPRITE
+    )
+    print("Formato: PNG")
+    print("Modo: RGBA / 32 bits")
     print()
     print("Pasta:")
     print(pasta_saida.resolve())
@@ -142,12 +183,12 @@ def cortar_sprites(caminho_imagem):
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
+
+        print("Uso:")
         print(
-            "Uso:"
+            'python cortar_sprites.py "1.png"'
         )
-        print(
-            'python cortar_sprites.py "sprites\\seguranca (1).png"'
-        )
+
         sys.exit(1)
 
     cortar_sprites(
