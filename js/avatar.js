@@ -3,23 +3,23 @@ const avatarConfig = {
     areas: {
         programacao: {
             nome: "Programacao",
-            masculino: 30,
-            feminino: 20
+            masculino: 40,
+            feminino: 40
         },
         design: {
             nome: "Designer",
-            masculino: 20,
-            feminino: 20
+            masculino: 40,
+            feminino: 40
         },
         redes: {
             nome: "Redes",
-            masculino: 20,
-            feminino: 21
+            masculino: 40,
+            feminino: 40
         },
         seguranca: {
             nome: "Ciberseguranca",
-            masculino: 20,
-            feminino: 20
+            masculino: 40,
+            feminino: 40
         }
     }
 };
