@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     /*
      * 0 = Dados pessoais
      * 1 = Pergunta 1
-     * 2 = Pergunta 2
      * ...
      * 10 = Pergunta 10
      */
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarEtapa(etapa) {
 
-        /* Esconde os dados pessoais */
+        /* Esconde ou mostra os dados pessoais */
 
         if (dadosPessoais) {
             dadosPessoais.style.display =
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /* Esconde/mostra as perguntas */
+        /* Esconde ou mostra as perguntas */
 
         for (let i = 1; i <= totalPerguntas; i++) {
 
@@ -46,10 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById(`pergunta${i}`);
 
             if (pergunta) {
-
                 pergunta.style.display =
                     etapa === i ? "block" : "none";
-
             }
         }
 
@@ -66,29 +63,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function dadosPreenchidos() {
 
-        const nome =
-            document.getElementById("nome");
-
-        const idade =
-            document.getElementById("idade");
+        const nome = document.getElementById("nome");
+        const celular = document.getElementById("celular");
+        const idade = document.getElementById("idade");
 
         const genero =
             document.querySelector(
                 'input[name="genero"]:checked'
             );
 
-
-        /*
-         * Todos os três precisam estar preenchidos
-         */
-
-        if (!nome || !idade || !genero) {
+        if (!nome || !celular || !idade || !genero) {
             return false;
         }
 
+        const celularNumeros =
+            celular.value.replace(/\D/g, "");
 
         return (
-            nome.value.trim() !== "" &&
+            nome.value.trim().length >= 8 &&
+            celularNumeros.length === 11 &&
             idade.value.trim() !== ""
         );
     }
@@ -103,17 +96,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const pergunta =
             document.getElementById(`pergunta${numero}`);
 
-
         if (!pergunta) {
             return false;
         }
-
 
         const respostas =
             pergunta.querySelectorAll(
                 'input[type="radio"], input[type="checkbox"]'
             );
-
 
         return Array.from(respostas).some(
             resposta => resposta.checked
@@ -127,14 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function etapaRespondida() {
 
-        /* Dados pessoais */
-
         if (etapaAtual === 0) {
             return dadosPreenchidos();
         }
-
-
-        /* Perguntas */
 
         return perguntaRespondida(etapaAtual);
     }
@@ -146,11 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function atualizarBotoes() {
 
-        /*
-         * ================================================
-         * DADOS PESSOAIS
-         * ================================================
-         */
+        /* Dados pessoais */
 
         if (etapaAtual === 0) {
 
@@ -160,27 +141,19 @@ document.addEventListener("DOMContentLoaded", function () {
             const proxima =
                 document.getElementById("btnProximaDados");
 
-
             if (voltar) {
                 voltar.disabled = true;
             }
 
-
             if (proxima) {
-                proxima.disabled =
-                    !dadosPreenchidos();
+                proxima.disabled = !dadosPreenchidos();
             }
-
 
             return;
         }
 
 
-        /*
-         * ================================================
-         * PERGUNTAS 1 A 10
-         * ================================================
-         */
+        /* Perguntas 1 a 10 */
 
         const voltar =
             document.getElementById(`btnVoltar${etapaAtual}`);
@@ -188,25 +161,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const proxima =
             document.getElementById(`btnProxima${etapaAtual}`);
 
-
-        /*
-         * Botão voltar
-         */
-
         if (voltar) {
             voltar.disabled = false;
         }
 
-
-        /*
-         * Botão próxima
-         */
-
         if (proxima) {
-
             proxima.disabled =
                 !perguntaRespondida(etapaAtual);
-
         }
     }
 
@@ -217,31 +178,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function proximaEtapa() {
 
-        /*
-         * Não deixa avançar sem responder
-         */
+        /* Não deixa avançar sem responder */
 
         if (!etapaRespondida()) {
             return;
         }
 
-
-        /*
-         * Se chegou na pergunta 10,
-         * finaliza o quiz
-         */
+        /* Se chegou na pergunta 10, finaliza o quiz */
 
         if (etapaAtual === totalPerguntas) {
-
             finalizarQuiz();
-
             return;
         }
-
-
-        /*
-         * Avança uma etapa
-         */
 
         mostrarEtapa(etapaAtual + 1);
     }
@@ -253,19 +201,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function voltarEtapa() {
 
-        /*
-         * Se está nos dados pessoais,
-         * não existe etapa anterior
-         */
-
         if (etapaAtual === 0) {
             return;
         }
-
-
-        /*
-         * Volta uma etapa
-         */
 
         mostrarEtapa(etapaAtual - 1);
     }
@@ -293,6 +231,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const nome =
         document.getElementById("nome");
 
+    const celular =
+        document.getElementById("celular");
+
     const idade =
         document.getElementById("idade");
 
@@ -301,30 +242,20 @@ document.addEventListener("DOMContentLoaded", function () {
             'input[name="genero"]'
         );
 
-
     if (nome) {
-        nome.addEventListener(
-            "input",
-            atualizarBotoes
-        );
+        nome.addEventListener("input", atualizarBotoes);
     }
 
+    if (celular) {
+        celular.addEventListener("input", atualizarBotoes);
+    }
 
     if (idade) {
-        idade.addEventListener(
-            "input",
-            atualizarBotoes
-        );
+        idade.addEventListener("input", atualizarBotoes);
     }
 
-
     generos.forEach(function (genero) {
-
-        genero.addEventListener(
-            "change",
-            atualizarBotoes
-        );
-
+        genero.addEventListener("change", atualizarBotoes);
     });
 
 
@@ -335,14 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const btnProximaDados =
         document.getElementById("btnProximaDados");
 
-
     if (btnProximaDados) {
-
-        btnProximaDados.addEventListener(
-            "click",
-            proximaEtapa
-        );
-
+        btnProximaDados.addEventListener("click", proximaEtapa);
     }
 
 
@@ -358,32 +283,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const btnVoltar =
             document.getElementById(`btnVoltar${i}`);
 
-
-        /*
-         * Próximo
-         */
-
         if (btnProxima) {
-
-            btnProxima.addEventListener(
-                "click",
-                proximaEtapa
-            );
-
+            btnProxima.addEventListener("click", proximaEtapa);
         }
 
-
-        /*
-         * Voltar
-         */
-
         if (btnVoltar) {
-
-            btnVoltar.addEventListener(
-                "click",
-                voltarEtapa
-            );
-
+            btnVoltar.addEventListener("click", voltarEtapa);
         }
     }
 
@@ -397,27 +302,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const pergunta =
             document.getElementById(`pergunta${i}`);
 
-
         if (!pergunta) {
             continue;
         }
-
 
         const respostas =
             pergunta.querySelectorAll(
                 'input[type="radio"], input[type="checkbox"]'
             );
 
-
         respostas.forEach(function (resposta) {
-
-            resposta.addEventListener(
-                "change",
-                atualizarBotoes
-            );
-
+            resposta.addEventListener("change", atualizarBotoes);
         });
-
     }
 
 

@@ -35,77 +35,62 @@
 
         <section class="quiz-section quiz-question" id="perguntaDados">
 
-            <h2>Antes de começar...</h2>
+    <h2>Antes de começar...</h2>
 
+    <!-- NOME COMPLETO -->
+    <div class="mb-4">
+        <label for="nome" class="form-label">
+            Qual é o seu nome completo?
+        </label>
+        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome completo">
+    </div>
 
-            <!-- NOME -->
+    <!-- APELIDO -->
+    <div class="mb-4">
+        <label for="apelido" class="form-label">
+            Como podemos chamar você?
+        </label>
+        <input type="text" class="form-control" id="apelido" name="apelido" placeholder="Digite seu apelido">
+    </div>
 
-            <div class="mb-4">
+    <!-- CELULAR -->
+    <div class="mb-4">
+        <label for="celular" class="form-label">
+            Qual é o seu celular?
+        </label>
+        <input type="tel" class="form-control" id="celular" name="celular" inputmode="tel"
+            placeholder="(17) 99999-9999">
+    </div>
 
-                <label for="nome" class="form-label">
+    <!-- IDADE -->
+    <div class="mb-4">
+        <label for="idade" class="form-label">
+            Qual é a sua idade?
+        </label>
+        <input type="number" class="form-control" id="idade" name="idade" min="10" max="100"
+            placeholder="Digite sua idade">
+    </div>
 
-                    Como podemos chamar você?
+    <!-- GÊNERO -->
+    <div class="mb-4">
+        <label class="form-label">
+            Como você se identifica?
+        </label>
 
-                </label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="generoMasculino" value="masculino">
+            <label class="form-check-label" for="generoMasculino">
+                Masculino
+            </label>
+        </div>
 
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome">
-
-            </div>
-
-
-            <!-- IDADE -->
-
-            <div class="mb-4">
-
-                <label for="idade" class="form-label">
-
-                    Qual é a sua idade?
-
-                </label>
-
-                <input type="number" class="form-control" id="idade" name="idade" min="10" max="100"
-                    placeholder="Digite sua idade">
-
-            </div>
-
-
-            <!-- GÊNERO -->
-
-            <div class="mb-4">
-
-                <label class="form-label">
-
-                    Como você se identifica?
-
-                </label>
-
-
-                <div class="form-check">
-
-                    <input class="form-check-input" type="radio" name="genero" id="generoMasculino" value="masculino">
-
-                    <label class="form-check-label" for="generoMasculino">
-
-                        Masculino
-
-                    </label>
-
-                </div>
-
-
-                <div class="form-check">
-
-                    <input class="form-check-input" type="radio" name="genero" id="generoFeminino" value="feminino">
-
-                    <label class="form-check-label" for="generoFeminino">
-
-                        Feminino
-
-                    </label>
-
-                </div>
-
-            </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="genero" id="generoFeminino" value="feminino">
+            <label class="form-check-label" for="generoFeminino">
+                Feminino
+            </label>
+        </div>
+    </div>
 
             <!-- TOM DE PELE -->
 <div class="mb-4">
@@ -1272,6 +1257,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/animacao.js"></script>
     <script src="./js/avatar.js"></script>
+    <script src="./js/contatos.js"></script>
 </body>
 
 </html>

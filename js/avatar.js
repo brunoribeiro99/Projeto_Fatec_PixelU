@@ -303,7 +303,7 @@ function mostrarAvatarNoResultado(avatar) {
     // ========================================
 
     const nomeInput =
-        document.getElementById("nome");
+        document.getElementById("apelido");
 
     const nomeUsuario =
         (nomeInput &&
@@ -351,7 +351,7 @@ function mostrarAvatarNoResultado(avatar) {
 function nomeArquivoDownload(avatar) {
 
     const nomeInput =
-        document.getElementById("nome");
+        document.getElementById("apelido");
 
     let nomeUsuario =
         (nomeInput &&
